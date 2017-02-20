@@ -1,0 +1,777 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android,programming," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一些Android小技巧
+在Release版本下查看log因为实现里用了Log.isLoggable(TAG,Log.VERBOSE)做了判断，LessCode的LogLess中也参考了这种机制：LogLess。
+使用这种方法就可以在Release版本也能做到查看应用的打印日志了，系统重启后设置失效。
+1adb shell setprop log.tag.SQLiteLog V
+PNG优化APK打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些Android小技巧">
+<meta property="og:url" content="http://suli1.github.io/2016/08/22/android-points/index.html">
+<meta property="og:site_name" content="li's home">
+<meta property="og:description" content="一些Android小技巧
+在Release版本下查看log因为实现里用了Log.isLoggable(TAG,Log.VERBOSE)做了判断，LessCode的LogLess中也参考了这种机制：LogLess。
+使用这种方法就可以在Release版本也能做到查看应用的打印日志了，系统重启后设置失效。
+1adb shell setprop log.tag.SQLiteLog V
+PNG优化APK打">
+<meta property="og:image" content="http://suli1.github.io/images/android_context.png">
+<meta property="og:updated_time" content="2016-08-23T01:30:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一些Android小技巧">
+<meta name="twitter:description" content="一些Android小技巧
+在Release版本下查看log因为实现里用了Log.isLoggable(TAG,Log.VERBOSE)做了判断，LessCode的LogLess中也参考了这种机制：LogLess。
+使用这种方法就可以在Release版本也能做到查看应用的打印日志了，系统重启后设置失效。
+1adb shell setprop log.tag.SQLiteLog V
+PNG优化APK打">
+<meta name="twitter:image" content="http://suli1.github.io/images/android_context.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://suli1.github.io/2016/08/22/android-points/"/>
+
+  <title> 一些Android小技巧 | li's home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3fd015799dfbb0fa3f59d1a9bcc5a2ca";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">li's home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一些Android小技巧
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-22T22:30:49+08:00" content="2016-08-22">
+              2016-08-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/22/android-points/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/22/android-points/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一些Android小技巧</p>
+<h2 id="在Release版本下查看log"><a href="#在Release版本下查看log" class="headerlink" title="在Release版本下查看log"></a>在Release版本下查看log</h2><p>因为实现里用了Log.isLoggable(TAG,Log.VERBOSE)做了判断，<br>LessCode的LogLess中也参考了这种机制：<a href="https://github.com/openproject/LessCode/blob/master/lesscode-core/src/main/java/com/jayfeng/lesscode/core/LogLess.java" target="_blank" rel="external">LogLess</a>。</p>
+<p>使用这种方法就可以在Release版本也能做到查看应用的打印日志了，<br>系统重启后设置失效。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell setprop log<span class="selector-class">.tag</span><span class="selector-class">.SQLiteLog</span> V</div></pre></td></tr></table></figure>
+<h2 id="PNG优化"><a href="#PNG优化" class="headerlink" title="PNG优化"></a>PNG优化</h2><p>APK打包会自动对PNG进行无损压缩，如果自行无损压缩是无效的。</p>
+<p>当然进行有损压缩是可以的：<a href="https://tinypng.com/" target="_blank" rel="external">https://tinypng.com/</a><br>tinypng压缩率一般可超过70%</p>
+<h2 id="Tcpdump抓包"><a href="#Tcpdump抓包" class="headerlink" title="Tcpdump抓包"></a>Tcpdump抓包</h2><p>抓包命令, <a href="http://www.strazzere.com/android/tcpdump" target="_blank" rel="external">http://www.strazzere.com/android/tcpdump</a></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell  /data/local/tcpdump -<span class="selector-tag">i</span> any -<span class="selector-tag">p</span> -s <span class="number">0</span> -w /sdcard/capture.pcap</div></pre></td></tr></table></figure>
+<h2 id="查看签名"><a href="#查看签名" class="headerlink" title="查看签名"></a>查看签名</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -<span class="built_in">list</span> -v -keystore release.jks</div></pre></td></tr></table></figure>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>最佳写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">                        </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonLoader</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">    &#125;</div><div class="line">                                                </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SingletonLoader.INSTANCE;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="多进程Application"><a href="#多进程Application" class="headerlink" title="多进程Application"></a>多进程Application</h2><p>当Android app有多个进程时，Application会执行多次，可以通过pid和applicationId来判断哪些方法只执行一次，避免浪费资源</p>
+<blockquote>
+<p><a href="http://www.rogerblog.cn/2016/03/17/android-proess/" target="_blank" rel="external">android:process 的坑，你懂吗？</a></p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">String</span> processName = getProcessName(<span class="keyword">this</span>, android.os.<span class="built_in">Process</span>.myPid());</div><div class="line"></div><div class="line"><span class="comment">// 判断进程名，保证只有主进程运行</span></div><div class="line"><span class="built_in">if</span> (!TextUtils.isEmpty(processName) &amp;&amp; processName.equals(<span class="keyword">this</span>.getPackageName())) &#123;</div><div class="line">        <span class="comment">// 主进程初始化逻辑</span></div><div class="line">            ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>获取当前进程名称</li>
+</ul>
+<p>方案1</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function">String <span class="title">getProcessName</span><span class="params">(Context cxt, <span class="keyword">int</span> pid)</span> </span>&#123;  </div><div class="line">    ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);  </div><div class="line">    List&lt;RunningAppProcessInfo&gt; runningApps = am.getRunningAppProcesses();  </div><div class="line">    <span class="keyword">if</span> (runningApps == <span class="keyword">null</span>) &#123;  </div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">for</span> (RunningAppProcessInfo procInfo : runningApps) &#123;  </div><div class="line">        <span class="keyword">if</span> (procInfo.pid == pid) &#123;  </div><div class="line">            <span class="keyword">return</span> procInfo.processName;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>方案2，效率更高<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> getProcessName() &#123;</div><div class="line">    <span class="built_in">try</span> &#123;</div><div class="line">        <span class="built_in">File</span> file = <span class="keyword">new</span> <span class="built_in">File</span>(<span class="string">"/proc/"</span> + android.os.<span class="built_in">Process</span>.myPid() + <span class="string">"/"</span> + <span class="string">"cmdline"</span>);</div><div class="line">        BufferedReader mBufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</div><div class="line">        <span class="keyword">String</span> processName = mBufferedReader.readLine().trim();</div><div class="line">        mBufferedReader.<span class="built_in">close</span>();</div><div class="line">        <span class="built_in">return</span> processName;</div><div class="line">    &#125; <span class="built_in">catch</span> (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">        <span class="built_in">return</span> null;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="ListView-的局部刷新"><a href="#ListView-的局部刷新" class="headerlink" title="ListView 的局部刷新"></a>ListView 的局部刷新</h2><p>有的列表可能notifyDataSetChanged()代价有点高，最好能局部刷新。<br>局部刷新的重点是，找到要更新的那项的View，然后再根据业务逻辑更新数据即可。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">void</span> updateItem(<span class="keyword">int</span> <span class="keyword">index</span>) &#123;</div><div class="line">    <span class="keyword">int</span>  visiblePosition = listView.getFirstVisiblePosition();</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">index</span> - visiblePosition &gt;= <span class="number">0</span>) &#123;</div><div class="line">    <span class="comment">// 得到要更新的item的view</span></div><div class="line">    View view = listView.getChildAt(<span class="keyword">index</span> - visiblePosition);</div><div class="line"></div><div class="line">    <span class="comment">// 更新界面（示例参考）</span></div><div class="line">    <span class="comment">// TextView nameView = ViewLess.$(view, R.id.name);</span></div><div class="line">    <span class="comment">// nameView.setText("update " + index);</span></div><div class="line">    <span class="comment">// 更新列表数据（示例参考）</span></div><div class="line">    <span class="comment">// list.get(index).setName("Update " + index);</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>强调一下，最后那个列表数据别忘记更新， 不然数据源不变，一滚动可能又还原了。</li>
+</ul>
+<h2 id="系统日志中的几个重要TAG"><a href="#系统日志中的几个重要TAG" class="headerlink" title="系统日志中的几个重要TAG"></a>系统日志中的几个重要TAG</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 查看Activity跳转</span></div><div class="line">adb logcat -v time <span class="string">| grep ActivityManager</span></div><div class="line"><span class="comment">// 查看崩溃信息</span></div><div class="line">adb logcat -v time <span class="string">| grep AndroidRuntime</span></div><div class="line"><span class="comment">// 查看Dalvik信息，比如GC</span></div><div class="line">adb logcat -v time <span class="string">| grep "</span>D\/Dalvik<span class="string">"</span></div><div class="line"><span class="comment">// 查看art信息，比如GC</span></div><div class="line">adb logcat -v time <span class="string">| grep "</span>I\/art<span class="string">"</span></div></pre></td></tr></table></figure>
+<h2 id="计算程序运行时间"><a href="#计算程序运行时间" class="headerlink" title="计算程序运行时间"></a>计算程序运行时间</h2><p>为了计算一段代码运行时间，一般的做法是，在代码的前面加个startTime，在代码的后面把当前时间减去startTime，这个时间差就是运行时间。<br>这里提供一种写起来更方便的方法，完全无时间逻辑，只是加一个打印log就够了。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 测试setContentView()的时间</span></div><div class="line"><span class="keyword">Log</span>.<span class="built_in">d</span>(<span class="string">"TAG"</span>, <span class="string">"Start"</span>);</div><div class="line">setContentView(R.layout.activity_http);</div><div class="line"><span class="keyword">Log</span>.<span class="built_in">d</span>(<span class="string">"TAG"</span>, <span class="string">"End"</span>);</div></pre></td></tr></table></figure>
+<p>日志过滤出来，运行命令“adb logcat -v time | grep TAG”：<br>通过-v time参数，可以比较日志的时间来计算代码的运行时间</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">03</span>-<span class="number">18</span> <span class="number">14</span>:<span class="number">47</span>:<span class="number">25.477</span> D/<span class="keyword">TAG</span>     <span class="title">(14600</span>): <span class="literal">Start</span></div><div class="line"><span class="number">03</span>-<span class="number">18</span> <span class="number">14</span>:<span class="number">47</span>:<span class="number">25.478</span> D/<span class="keyword">TAG</span>     <span class="title">(14600</span>): End</div></pre></td></tr></table></figure>
+<h2 id="图片缓存大小"><a href="#图片缓存大小" class="headerlink" title="图片缓存大小"></a>图片缓存大小</h2><p>现在很多图片库需要给图片设置一个最大缓存，但是这个值设置多少合适呢？<br>高端机和低端机的配置显然应该不同，可以考虑设置一个动态值。<br>建议设置为应用可用内存的1/8:</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int memoryCache = (<span class="name">int</span>) (<span class="name">Runtime</span>.getRuntime().maxMemory() / <span class="number">8</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="ClipPadding"><a href="#ClipPadding" class="headerlink" title="ClipPadding"></a>ClipPadding</h2><p>这个不多说，ListView的ClipPadding设为false，就能为ListView设置各种padding而不会出现丑陋的滑动“禁区”了。</p>
+<h2 id="强大的dumpsys"><a href="#强大的dumpsys" class="headerlink" title="强大的dumpsys"></a>强大的dumpsys</h2><p>dumpsys可以查看系统服务和状态，非常强大，可通过如下查看所有支持的子命令：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dumpsys <span class="string">| grep "</span>DUMP OF SERVICE<span class="string">"</span></div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">子命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">activity</td>
+<td style="text-align:left">显示所有的activities信息</td>
+</tr>
+<tr>
+<td style="text-align:center">cpuinfo</td>
+<td style="text-align:left">显示CPU信息</td>
+</tr>
+<tr>
+<td style="text-align:center">window</td>
+<td style="text-align:left">显示键盘，窗口和他们的关系</td>
+</tr>
+<tr>
+<td style="text-align:center">meminfo</td>
+<td style="text-align:left">内存信息（meminfo $package_name or $pid 使用包名或者进程id显示内存信息）</td>
+</tr>
+<tr>
+<td style="text-align:center">alarm</td>
+<td style="text-align:left">显示Alarm信息</td>
+</tr>
+<tr>
+<td style="text-align:center">statusbar</td>
+<td style="text-align:left">显示状态栏相关的信息（找出广告通知属于哪个应用）</td>
+</tr>
+<tr>
+<td style="text-align:center">usagestats</td>
+<td style="text-align:left">每个界面启动的时间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bugreport命令"><a href="#bugreport命令" class="headerlink" title="bugreport命令"></a>bugreport命令</h2><p>很多人都用过adb logcat，但是如果想要更详细的信息，logcat则无能为力。<br>所以大多数手机厂商测试更多的是用adb bugreport来抓log给开发人员分析。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 除了log，还包括启动后的系统状态,包括进程列表，内存信息，VM信息等等</span></div><div class="line"><span class="comment">// 而且不像logcat是一直打印的，bugreport命令输出到当前时间就停止结束了。</span></div><div class="line">adb bugreport &gt; main.<span class="built_in">log</span></div></pre></td></tr></table></figure>
+<h2 id="ListView的滑动与点击事件冲突"><a href="#ListView的滑动与点击事件冲突" class="headerlink" title="ListView的滑动与点击事件冲突"></a>ListView的滑动与点击事件冲突</h2><p><a href="http://blog.csdn.net/singwhatiwanna/article/details/8863232" target="_blank" rel="external">ListView事件冲突解决</a></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NestedHorizontalListView</span> <span class="keyword">extends</span> <span class="title">HorizontalListView</span> &#123;</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> TOUCH_STATE_REST = <span class="number">0</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> TOUCH_STATE_SCROLLING = <span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> TOUCH_SLOP = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mTouchState;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mLastMotionX;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> NestedHorizontalListView(Context context, AttributeSet attrs) &#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">boolean</span> onInterceptTouchEvent(MotionEvent ev) &#123;</div><div class="line"><span class="comment">//      return super.onInterceptTouchEvent(ev);</span></div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> action = ev.getAction();</div><div class="line">        <span class="keyword">if</span> ((action == MotionEvent.ACTION_MOVE) &amp;&amp; (mTouchState != TOUCH_STATE_REST)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> <span class="keyword">float</span> x = ev.getX();</div><div class="line"><span class="comment">//  final float y = ev.getY();</span></div><div class="line">    <span class="keyword">switch</span> (action) &#123;</div><div class="line">        <span class="keyword">case</span> MotionEvent.<span class="string">ACTION_MOVE:</span></div><div class="line">            <span class="keyword">final</span> <span class="keyword">int</span> xDiff = (<span class="keyword">int</span>) Math.abs(mLastMotionX - x);</div><div class="line">            <span class="keyword">if</span> (xDiff &gt; TOUCH_SLOP) &#123;</div><div class="line">                mTouchState = TOUCH_STATE_SCROLLING;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MotionEvent.<span class="string">ACTION_DOWN:</span></div><div class="line">            mLastMotionX = x;</div><div class="line"><span class="comment">//          mLastMotionY = y;</span></div><div class="line">            mTouchState = mFlingTracker.isFinished() ? TOUCH_STATE_REST : TOUCH_STATE_SCROLLING;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MotionEvent.<span class="string">ACTION_CANCEL:</span></div><div class="line">        <span class="keyword">case</span> MotionEvent.<span class="string">ACTION_UP:</span></div><div class="line">            mTouchState = TOUCH_STATE_REST;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mTouchState != TOUCH_STATE_REST;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Context到底是什么"><a href="#Context到底是什么" class="headerlink" title="Context到底是什么"></a>Context到底是什么</h2><p><a href="http://www.jianshu.com/p/94e0f9ab3f1d" target="_blank" rel="external">Context</a>的中文翻译为：语境; 上下文; 背景; 环境，在开发中我们经常说称之为“上下文”，那么这个“上下文”到底是指什么意思呢？在语文中，我们可以理解为语境，在程序中，我们可以理解为当前对象在程序中所处的一个环境，一个与系统交互的过程。比如微信聊天，此时的“环境”是指聊天的界面以及相关的数据请求与传输，Context在加载资源、启动Activity、获取系统服务、创建View等操作都要参与。  </p>
+<blockquote>
+<p>实现Context的子类的关系图如下<br><img src="/images/android_context.png" alt="实现Context的子类的关系图" title="实现Context的子类的关系图"></p>
+</blockquote>
+<h2 id="禁止EditText输入"><a href="#禁止EditText输入" class="headerlink" title="禁止EditText输入"></a>禁止EditText输入</h2><blockquote>
+<p>void <a href="https://developer.android.com/reference/android/widget/TextView.html#setKeyListener(android.text.method.KeyListener" target="_blank" rel="external">setKeyListener</a>) (KeyListener input)<br>Sets the key listener to be used with this TextView. <em>This can be null to disallow user input.</em> Note that this method has significant and subtle interactions with soft keyboards and other input method: see KeyListener.getContentType() for important details. Calling this method will replace the current content type of the text view with the content type returned by the key listener.</p>
+</blockquote>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">editText.setKeyListener(null)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="使用-字符解决gradle-aar编译参数传递的问题"><a href="#使用-字符解决gradle-aar编译参数传递的问题" class="headerlink" title="使用@字符解决gradle aar编译参数传递的问题"></a>使用@字符解决gradle aar编译参数传递的问题</h2><blockquote>
+<p><a href="http://blog.csdn.net/eclipsexys/article/details/51283232" target="_blank" rel="external">一个字符解决Gradle aar编译参数传递问题是怎样一种体验</a><br>问题:主项目依赖library,需要在编译时给library传递一个key<br>解决方法:<br>library AndroidMainifest.xml:<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">meta-data</span></span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">"APP_KEY"</span></div><div class="line">        <span class="attr">android:value</span>=<span class="string">"$</span><span class="template-variable">&#123;APP_KEY&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>/&gt;</span></span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>library build.gradle:<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">manifestPlaceholders</span> = [</div><div class="line">    <span class="string">"<span class="variable">@APP_KEY</span>"</span> : <span class="string">""</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>在主项目中,配置manifestPlaceholders:<br>app build.gralde:<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">manifestPlaceholders = [</div><div class="line">    <span class="string">"APP_KEY"</span> : <span class="type">app_key</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>参考资料</p>
+<ul>
+<li><a href="http://jayfeng.com/2016/03/18/%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E9%82%A3%E4%BA%9BAndroid%E5%B0%8F%E7%BB%8F%E9%AA%8C/" target="_blank" rel="external">你应该知道的那些Android小经验</a></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+            <a href="/tags/programming/" rel="tag">#programming</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/21/android-tools/" rel="next" title="Android开发中一些好用的工具">
+                <i class="fa fa-chevron-left"></i> Android开发中一些好用的工具
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/02/android-black-technology/" rel="prev" title="android中的一些黑科技.md">
+                android中的一些黑科技.md <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpeg"
+               alt="Li Su" />
+          <p class="site-author-name" itemprop="name">Li Su</p>
+          <p class="site-description motion-element" itemprop="description">Good good study, day day up!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/suli1" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Release版本下查看log"><span class="nav-number">1.</span> <span class="nav-text">在Release版本下查看log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PNG优化"><span class="nav-number">2.</span> <span class="nav-text">PNG优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tcpdump抓包"><span class="nav-number">3.</span> <span class="nav-text">Tcpdump抓包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看签名"><span class="nav-number">4.</span> <span class="nav-text">查看签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">5.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多进程Application"><span class="nav-number">6.</span> <span class="nav-text">多进程Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView-的局部刷新"><span class="nav-number">7.</span> <span class="nav-text">ListView 的局部刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统日志中的几个重要TAG"><span class="nav-number">8.</span> <span class="nav-text">系统日志中的几个重要TAG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算程序运行时间"><span class="nav-number">9.</span> <span class="nav-text">计算程序运行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片缓存大小"><span class="nav-number">10.</span> <span class="nav-text">图片缓存大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ClipPadding"><span class="nav-number">11.</span> <span class="nav-text">ClipPadding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强大的dumpsys"><span class="nav-number">12.</span> <span class="nav-text">强大的dumpsys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bugreport命令"><span class="nav-number">13.</span> <span class="nav-text">bugreport命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView的滑动与点击事件冲突"><span class="nav-number">14.</span> <span class="nav-text">ListView的滑动与点击事件冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context到底是什么"><span class="nav-number">15.</span> <span class="nav-text">Context到底是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止EditText输入"><span class="nav-number">16.</span> <span class="nav-text">禁止EditText输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-字符解决gradle-aar编译参数传递的问题"><span class="nav-number">17.</span> <span class="nav-text">使用@字符解决gradle aar编译参数传递的问题</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Su</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'suli1';
+      var disqus_identifier = '2016/08/22/android-points/';
+      var disqus_title = "一些Android小技巧";
+      var disqus_url = 'http://suli1.github.io/2016/08/22/android-points/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

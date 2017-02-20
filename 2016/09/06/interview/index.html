@@ -1,0 +1,727 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="已经进行2年多的Android应用开发工作，现在又要开始找新工作了，记录一下自己这次找工作的准备工作，以做后用。
+Java及Android面试常用知识国内一线互联网公司内部面试题库
+
+Java  
+
+Java中一些重要的关键字synchroized,volatile, final, transientsynchroized,要看该关键字修饰的对象的作用域主要有两层作用域,    1.作用于对象实例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试准备">
+<meta property="og:url" content="http://suli1.github.io/2016/09/06/interview/index.html">
+<meta property="og:site_name" content="li's home">
+<meta property="og:description" content="已经进行2年多的Android应用开发工作，现在又要开始找新工作了，记录一下自己这次找工作的准备工作，以做后用。
+Java及Android面试常用知识国内一线互联网公司内部面试题库
+
+Java  
+
+Java中一些重要的关键字synchroized,volatile, final, transientsynchroized,要看该关键字修饰的对象的作用域主要有两层作用域,    1.作用于对象实例">
+<meta property="og:updated_time" content="2017-01-18T09:53:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android面试准备">
+<meta name="twitter:description" content="已经进行2年多的Android应用开发工作，现在又要开始找新工作了，记录一下自己这次找工作的准备工作，以做后用。
+Java及Android面试常用知识国内一线互联网公司内部面试题库
+
+Java  
+
+Java中一些重要的关键字synchroized,volatile, final, transientsynchroized,要看该关键字修饰的对象的作用域主要有两层作用域,    1.作用于对象实例">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://suli1.github.io/2016/09/06/interview/"/>
+
+  <title> Android面试准备 | li's home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3fd015799dfbb0fa3f59d1a9bcc5a2ca";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">li's home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android面试准备
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T10:54:55+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/06/interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>已经进行2年多的Android应用开发工作，现在又要开始找新工作了，记录一下自己这次找工作的准备工作，以做后用。</p>
+<h1 id="Java及Android面试常用知识"><a href="#Java及Android面试常用知识" class="headerlink" title="Java及Android面试常用知识"></a>Java及Android面试常用知识</h1><p><a href="https://github.com/JackyAndroid/AndroidInterview-Q-A" target="_blank" rel="external">国内一线互联网公司内部面试题库</a></p>
+<blockquote>
+<p>Java  </p>
+</blockquote>
+<h2 id="Java中一些重要的关键字synchroized-volatile-final-transient"><a href="#Java中一些重要的关键字synchroized-volatile-final-transient" class="headerlink" title="Java中一些重要的关键字synchroized,volatile, final, transient"></a>Java中一些重要的关键字synchroized,volatile, final, transient</h2><p>synchroized,要看该关键字修饰的对象的作用域<br>主要有两层作用域,<br>    1.作用于对象实例,在多线程同步时仅在当前对象中起作用;<br>2.作用于类,包括1,在该类的所有对象实例中起作用。</p>
+<p>volatile:保证被修饰的变量每次读取的值都是最新的,一种简单的同步机制  </p>
+<p>final: 可修饰变量，方法，类   </p>
+<p>transient:被修饰的字段不会被序列化或反序列化  </p>
+<h2 id="Java中的异常处理制"><a href="#Java中的异常处理制" class="headerlink" title="Java中的异常处理制"></a>Java中的异常处理制</h2><p>try catch finally<br>Throwable</p>
+<h2 id="Java中Object的意义"><a href="#Java中Object的意义" class="headerlink" title="Java中Object的意义"></a>Java中Object的意义</h2><p>Class Object is the root of the class hierarchy. Every class has Object as a superclass. All objects, including arrays, implement the methods of this class.</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>Java 中实现多态的方式:接口实现，继承父类进行方法重载，同一个类中进行方法重载<br>好处:<br>1.可替换性<br>2.可扩充性<br>3.灵活性<br>5.简化性  </p>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a><a href="http://blog.csdn.net/qy1387/article/details/7752973" target="_blank" rel="external">排序算法</a></h2><p>冒泡排序，快速排序，堆排序</p>
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 直接插入排序</div><div class="line"> */</div><div class="line">public static void insertSort(<span class="selector-tag">int</span>[] <span class="title">data</span>) &#123;</div><div class="line">    <span class="selector-tag">int</span> tmp = <span class="number">0</span>;</div><div class="line">    <span class="name">for</span> (<span class="selector-tag">int</span> i = <span class="number">1</span>; i &lt; <span class="title">data</span>.length; i++) &#123;</div><div class="line">        <span class="selector-tag">int</span> j = i - <span class="number">1</span>;</div><div class="line">        tmp = <span class="title">data</span>[i];</div><div class="line">        <span class="name">for</span> (; j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; <span class="title">data</span>[j]; j--) &#123;</div><div class="line">            <span class="title">data</span>[j + <span class="number">1</span>] = <span class="title">data</span>[j]; <span class="comment">// 将大于tmp的值整体后移一个单位</span></div><div class="line">        &#125;</div><div class="line">        <span class="title">data</span>[j + <span class="number">1</span>] = tmp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 冒泡排序</div><div class="line"> */</div><div class="line">public static void bubbleSort(<span class="selector-tag">int</span>[] <span class="title">data</span>) &#123;</div><div class="line">    <span class="name">for</span> (<span class="selector-tag">int</span> i = <span class="number">0</span>; i &lt; <span class="title">data</span>.length - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="name">for</span> (<span class="selector-tag">int</span> j = <span class="title">data</span>.length - <span class="number">1</span>; j &gt; i; j--) &#123;</div><div class="line">            <span class="name">if</span> (<span class="title">data</span>[j] &lt; <span class="title">data</span>[j - <span class="number">1</span>]) &#123;</div><div class="line">                <span class="selector-tag">int</span> tmp = <span class="title">data</span>[j]; <span class="comment">// switch</span></div><div class="line">                <span class="title">data</span>[j] = <span class="title">data</span>[j - <span class="number">1</span>];</div><div class="line">                <span class="title">data</span>[j - <span class="number">1</span>] = tmp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 希尔排序</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort</span>(<span class="params"><span class="keyword">int</span>[] data</span>) </span>&#123;</div><div class="line">    <span class="keyword">double</span> d1 = data.length;</div><div class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">        d1 = Math.ceil(d1 / <span class="number">2</span>);</div><div class="line">        <span class="keyword">int</span> d = (<span class="keyword">int</span>) d1;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; d; x++) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = x + d; i &lt; data.length; i += d) &#123;</div><div class="line">                <span class="keyword">int</span> j = i - d;</div><div class="line">                temp = data[i];</div><div class="line">                <span class="keyword">for</span> (; j &gt;= <span class="number">0</span> &amp;&amp; temp &lt; data[j]; j -= d) &#123;</div><div class="line">                    data[j + d] = data[j];</div><div class="line">                &#125;</div><div class="line">                data[j + d] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.<span class="keyword">out</span>.println();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : data) &#123;</div><div class="line">            System.<span class="keyword">out</span>.print(i + <span class="string">","</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (d == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 快速排序</div><div class="line"> */</div><div class="line">public static void quickSort(<span class="selector-tag">int</span>[] <span class="title">data</span>) &#123;</div><div class="line">   <span class="name">if</span> (<span class="title">data</span>.length &gt; <span class="number">0</span>) &#123;</div><div class="line">       _quickSort(<span class="title">data</span>, <span class="number">0</span>, <span class="title">data</span>.length - <span class="number">1</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">private static <span class="selector-tag">int</span> getMiddle(<span class="selector-tag">int</span>[] <span class="title">data</span>, <span class="selector-tag">int</span> low, <span class="selector-tag">int</span> high) &#123;</div><div class="line">    <span class="selector-tag">int</span> tmp = <span class="title">data</span>[low]; <span class="comment">// 数组的第一个作为中轴</span></div><div class="line">    <span class="name">while</span> (low &lt; high) &#123;</div><div class="line">        <span class="name">while</span> (low &lt; high &amp;&amp; <span class="title">data</span>[high] &gt;= tmp) &#123;</div><div class="line">            high--;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="title">data</span>[low] = <span class="title">data</span>[high];     <span class="comment">// 比中轴小的记录移到低端</span></div><div class="line">        <span class="name">while</span> (low &lt; high &amp;&amp; <span class="title">data</span>[low] &lt;= tmp) &#123;</div><div class="line">            low++;</div><div class="line">        &#125;</div><div class="line">        <span class="title">data</span>[high] = <span class="title">data</span>[low];</div><div class="line">    &#125;</div><div class="line">    <span class="title">data</span>[low] = tmp;</div><div class="line">    return low;</div><div class="line">&#125;</div><div class="line"></div><div class="line">private static void _quickSort(<span class="selector-tag">int</span>[] <span class="title">data</span>, <span class="selector-tag">int</span> low, <span class="selector-tag">int</span> high) &#123;</div><div class="line">    <span class="name">if</span> (low &lt; high) &#123;</div><div class="line">        <span class="selector-tag">int</span> middle = getMiddle(<span class="title">data</span>, low, high); <span class="comment">// 将data数组一份为二</span></div><div class="line">        _quickSort(<span class="title">data</span>, low, middle - <span class="number">1</span>);  <span class="comment">// 对低字表进行递归排序</span></div><div class="line">        _quickSort(<span class="title">data</span>, middle + <span class="number">1</span>, high); <span class="comment">// 对高字表进行递归排序</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="java虚拟机垃圾回收机制"><a href="#java虚拟机垃圾回收机制" class="headerlink" title="java虚拟机垃圾回收机制"></a>java虚拟机垃圾回收机制</h2><p>分代回收,定时GC<br><a href="http://jayfeng.com/2016/03/11/%E7%90%86%E8%A7%A3Java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" target="_blank" rel="external">理解Java垃圾回收机制</a></p>
+<h2 id="进程和线程的区别及并发编程"><a href="#进程和线程的区别及并发编程" class="headerlink" title="进程和线程的区别及并发编程"></a>进程和线程的区别及并发编程</h2><blockquote>
+<p>java并发编程实战.pdf  </p>
+</blockquote>
+<p>线程属于进程的一个执行单元,进程是操作系统的一个执行单元<br>进程有独立的地址空间，由操作系统管理，而线程只是进程中的不通过执行路径，多线程间共享内存，它们有自己的堆栈和局部变量，但线程之间没有独立的地址空间，一个线程死掉就等于整个进程死掉<br>线程的阻塞<br>1.sleep():允许线程在指定时间内进入阻塞状态，不能得到CPU时间片<br>2.suspend()和resume():配套使用<br>3.yield():放弃当前CPU时间片，使线程进入等待状态，随时可再分配到时间片<br>4.wait()和notify():配套使用，允许指定时间进入阻塞状态，超出指定时间或使用notify()时可重写进入可执行状态  </p>
+<h2 id="StringBuffer和StringBuilder的区别"><a href="#StringBuffer和StringBuilder的区别" class="headerlink" title="StringBuffer和StringBuilder的区别"></a>StringBuffer和StringBuilder的区别</h2><p>StringBuffer是线程安全的，StringBuilder非线程安全，速度要比StringBuffer稍快点，一般情况下可使用StringBuilder以提高性能</p>
+<h2 id="HashMap和HashTable-ArrayMap和HashMap-SparseArrayMap"><a href="#HashMap和HashTable-ArrayMap和HashMap-SparseArrayMap" class="headerlink" title="HashMap和HashTable, ArrayMap和HashMap, SparseArrayMap"></a>HashMap和HashTable, ArrayMap和HashMap, SparseArrayMap</h2><blockquote>
+<p>Android  </p>
+</blockquote>
+<h2 id="Activity-LaunchMode"><a href="#Activity-LaunchMode" class="headerlink" title="Activity LaunchMode"></a>Activity LaunchMode</h2><ul>
+<li>standard<br>每次都从新创建一个新的Activity</li>
+<li>singleTop<br>创建新的Activity，如果需要创建的Activity在栈顶则使用栈顶的Activity,会调用onNewIntent</li>
+<li>singleTask<br>如果在当前栈中发现存在需要创建的Activity则重用该栈中的Activity,并将在它上面的Activity出栈</li>
+<li>singleInstance<br>与singleTask类似，但Activity会在单独的一个栈中</li>
+</ul>
+<h2 id="Activity的创建过程"><a href="#Activity的创建过程" class="headerlink" title="Activity的创建过程"></a>Activity的创建过程</h2><p><a href="http://blog.csdn.net/luoshengyang/article/details/6703247" target="_blank" rel="external">startActivity源码分析</a><br><a href="http://gityuan.com/2016/03/12/start-activity/" target="_blank" rel="external">startActivity</a></p>
+<h2 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h2><h2 id="view的事件传递机制"><a href="#view的事件传递机制" class="headerlink" title="view的事件传递机制"></a>view的事件传递机制</h2><h2 id="Message的消息通信机制"><a href="#Message的消息通信机制" class="headerlink" title="Message的消息通信机制"></a>Message的消息通信机制</h2><h2 id="动画-及属性动画的原理"><a href="#动画-及属性动画的原理" class="headerlink" title="动画,及属性动画的原理"></a>动画,及属性动画的原理</h2><h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><h1 id="Android应用性能优化"><a href="#Android应用性能优化" class="headerlink" title="Android应用性能优化"></a>Android应用性能优化</h1><p><a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIKEOXh5TwZEv89aofHzNCiu" target="_blank" rel="external">Android Performance Patterns</a>:2015年Google在youtube上发布的Android性能优化视频。<br><a href="http://v.youku.com/v_show/id_XMTUyMTM0MzgyNA==.html?f=26946827" target="_blank" rel="external">(中文)Android性能模式 第四季</a><br><a href="http://hukai.me/" target="_blank" rel="external">Android性能优化典范中文版文档</a>:对官方视频翻译整理的文档</p>
+<h2 id="gradle编译速度优化"><a href="#gradle编译速度优化" class="headerlink" title="gradle编译速度优化"></a>gradle编译速度优化</h2><p>1.开启gradle的守护进程,见<a href="https://docs.gradle.org/2.14.1/userguide/gradle_daemon.html" target="_blank" rel="external">The Gradle Daemon</a><br>在USE_HOME/.gradle/gradle.properties中添加如下代码<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.daemon</span>=true</div></pre></td></tr></table></figure></p>
+<p>gradle.properties<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Specifies the JVM arguments used for the daemon process.</span></div><div class="line"><span class="comment"># The setting is particularly useful for tweaking memory settings.</span></div><div class="line"><span class="comment"># Default value: -Xmx10248m -XX:MaxPermSize=256m</span></div><div class="line">org.gradle.<span class="attr">jvmargs=-Xmx6144m</span> -XX:<span class="attr">MaxPermSize=512m</span> -XX:+HeapDumpOnOutOfMemoryError -Dfile.<span class="attr">encoding=UTF-8</span></div><div class="line"></div><div class="line"><span class="comment"># When configured, Gradle will run in incubating parallel mode.</span></div><div class="line"><span class="comment"># This option should only be used with decoupled projects. More details, visit</span></div><div class="line"><span class="comment"># http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects</span></div><div class="line">org.gradle.<span class="attr">parallel=true</span></div><div class="line"></div><div class="line"><span class="comment"># Enables new incubating mode that makes Gradle selective when configuring projects.</span></div><div class="line"><span class="comment"># Only relevant projects are configured which results in faster builds for large multi-projects.</span></div><div class="line"><span class="comment"># http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:configuration_on_demand</span></div><div class="line">org.gradle.<span class="attr">configureondemand=true</span></div></pre></td></tr></table></figure></p>
+<p>2.如果使用了productFlavors,可以使用命令进行打包当前需要的apk包，忽略其他的apk包，这样可以减少一些编译打包时间<br>编译打包Product的Debug包,这样仅生成包app-production-deubg.apk, app-production-debug-unaligned.apk<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$.</span>/gradlew assembleProductionDebug</div></pre></td></tr></table></figure></p>
+<p>3.添加gradle代码，忽略当前不需要执行的单元测试</p>
+<h2 id="ListView的优化"><a href="#ListView的优化" class="headerlink" title="ListView的优化"></a>ListView的优化</h2><p>1.重用convertView,通过复用convertView来减少不必要的view创建,inflate操作也比较耗时<br>2.使用ViewHolder减少findViewById()操作<br>3.避免在getView方法中做耗时的操作,异步加载图片等资源<br>4.优化item的布局,如减少布局层次,防止过渡重绘<br>5.尽量保证Adapter.hasStableIds()返回true,这样在notifyDataSetChanged()的时候,如果item内容没有变化,ListView讲不会重绘这个View<br>6.对ScrollView于嵌套的ListView,可以把ListView的高度写死<br>7.使用RecyclerView替代ListView:每个item内容的变动，ListView都需要去调用notifyDataSetChanged来更新全部的item，太浪费性能了。RecyclerView可以实现单个item的局部刷新，并且引入了增加和删除的动态效果，在性能上和定制上都有很大的改善<br>8.ListView中元素避免半透明,或在滚动是取消半透明的效果<br>9.尽量开启硬件加速,提升性能</p>
+<h2 id="官方性能优化的文章"><a href="#官方性能优化的文章" class="headerlink" title="官方性能优化的文章"></a>官方性能优化的文章</h2><h2 id="优化电量"><a href="#优化电量" class="headerlink" title="优化电量"></a>优化电量</h2><p>延长电池的使用时间可以考虑从如下方面着手(一般应用都会有如下功能):</p>
+<ul>
+<li>执行代码</li>
+<li>数据传输(网络的上传和下载，使用Wi-Fi, 2G, 3G, 4G, 蓝牙)</li>
+<li>追踪位置</li>
+<li>使用传感器(加速度计、陀螺仪)</li>
+<li>渲染图像(使用GPU或CPU)</li>
+<li>唤醒以执行各种任务(Alarm,WakeLock,Receiver)</li>
+</ul>
+<h2 id="布局和图形的优化"><a href="#布局和图形的优化" class="headerlink" title="布局和图形的优化"></a>布局和图形的优化</h2><pre><code>通过测试可以了解到Activity从onCreate()到onResume()介绍之间90%以上的时间会消耗在setContentView上，所有应该尽量减少布局展开所花费的时间，为了达到这一目的一般基于同样的原则：减少创建对象数或延时创建对象。  
+</code></pre><p>可以在如下方面做一些改善:</p>
+<ul>
+<li>减少布局层次(使用RelativeLayout或<merge\>标签</merge\></li>
+<li>使用<include \="">重用布局()</include></li>
+<li>使用ViewStub延迟加载</li>
+<li>尽可能对每一个view只使用一次findViewById的调用</li>
+</ul>
+<p>优化布局的工具:hierarchyviewer, layoutopt, lint</p>
+<p>使用OpenGl ES进行图形的渲染，压缩</p>
+<h2 id="减少Apk包的体积"><a href="#减少Apk包的体积" class="headerlink" title="减少Apk包的体积"></a>减少Apk包的体积</h2><ul>
+<li>图片资源压缩</li>
+<li>去除无用的资源和代码</li>
+</ul>
+<h2 id="内存优化、内存泄露、OOM分析"><a href="#内存优化、内存泄露、OOM分析" class="headerlink" title="内存优化、内存泄露、OOM分析"></a>内存优化、内存泄露、OOM分析</h2><p><a href="http://blog.csdn.net/u010687392/article/details/50721437" target="_blank" rel="external">Bitmpa 内存优化</a><br><a href="https://github.com/square/leakcanary" target="_blank" rel="external">LeakCanary</a><br><a href="http://blog.nimbledroid.com/2016/05/23/memory-leaks.html" target="_blank" rel="external">一些会产生内存泄露的地方</a><br><a href="http://www.theshiftingbit.com/Fixing-Memory-Leaks-in-Android-Studio" target="_blank" rel="external">Fixing Memory Leaks in Android Studio</a></p>
+<h2 id="提高app启动速度"><a href="#提高app启动速度" class="headerlink" title="提高app启动速度"></a>提高app启动速度</h2><p><a href="http://blog.csdn.net/u010687392/article/details/50518343" target="_blank" rel="external">加速应用的启动速度</a></p>
+<h1 id="单元测试编写"><a href="#单元测试编写" class="headerlink" title="单元测试编写"></a>单元测试编写</h1><p>小创博客-<a href="http://www.chriszou.com/?from=jianshuhome" target="_blank" rel="external">单元测试</a></p>
+<h1 id="一些开源库的原理深入剖析"><a href="#一些开源库的原理深入剖析" class="headerlink" title="一些开源库的原理深入剖析"></a>一些开源库的原理深入剖析</h1><p>1.Retrofit2, 2.Dagger2, 3.RxJava, 4.Picasso or Fresco</p>
+<h1 id="Android中的设计模式"><a href="#Android中的设计模式" class="headerlink" title="Android中的设计模式"></a>Android中的设计模式</h1><p><a href="https://github.com/suli1/android_design_patterns_analysis" target="_blank" rel="external">android design patterns</a></p>
+<h1 id="当前比较火热的技术"><a href="#当前比较火热的技术" class="headerlink" title="当前比较火热的技术"></a>当前比较火热的技术</h1><p>热修复, 插件化, 换肤 </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/android-black-technology/" rel="next" title="android中的一些黑科技.md">
+                <i class="fa fa-chevron-left"></i> android中的一些黑科技.md
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/08/android-security-issues/" rel="prev" title="android安全问题集锦">
+                android安全问题集锦 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpeg"
+               alt="Li Su" />
+          <p class="site-author-name" itemprop="name">Li Su</p>
+          <p class="site-description motion-element" itemprop="description">Good good study, day day up!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/suli1" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java及Android面试常用知识"><span class="nav-number">1.</span> <span class="nav-text">Java及Android面试常用知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中一些重要的关键字synchroized-volatile-final-transient"><span class="nav-number">1.1.</span> <span class="nav-text">Java中一些重要的关键字synchroized,volatile, final, transient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的异常处理制"><span class="nav-number">1.2.</span> <span class="nav-text">Java中的异常处理制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中Object的意义"><span class="nav-number">1.3.</span> <span class="nav-text">Java中Object的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">1.4.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序算法"><span class="nav-number">1.5.</span> <span class="nav-text">排序算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java虚拟机垃圾回收机制"><span class="nav-number">1.6.</span> <span class="nav-text">java虚拟机垃圾回收机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程和线程的区别及并发编程"><span class="nav-number">1.7.</span> <span class="nav-text">进程和线程的区别及并发编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer和StringBuilder的区别"><span class="nav-number">1.8.</span> <span class="nav-text">StringBuffer和StringBuilder的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap和HashTable-ArrayMap和HashMap-SparseArrayMap"><span class="nav-number">1.9.</span> <span class="nav-text">HashMap和HashTable, ArrayMap和HashMap, SparseArrayMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-LaunchMode"><span class="nav-number">1.10.</span> <span class="nav-text">Activity LaunchMode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的创建过程"><span class="nav-number">1.11.</span> <span class="nav-text">Activity的创建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信"><span class="nav-number">1.12.</span> <span class="nav-text">进程间通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#view的事件传递机制"><span class="nav-number">1.13.</span> <span class="nav-text">view的事件传递机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Message的消息通信机制"><span class="nav-number">1.14.</span> <span class="nav-text">Message的消息通信机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画-及属性动画的原理"><span class="nav-number">1.15.</span> <span class="nav-text">动画,及属性动画的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.16.</span> <span class="nav-text">DataBinding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android应用性能优化"><span class="nav-number">2.</span> <span class="nav-text">Android应用性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle编译速度优化"><span class="nav-number">2.1.</span> <span class="nav-text">gradle编译速度优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView的优化"><span class="nav-number">2.2.</span> <span class="nav-text">ListView的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方性能优化的文章"><span class="nav-number">2.3.</span> <span class="nav-text">官方性能优化的文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化电量"><span class="nav-number">2.4.</span> <span class="nav-text">优化电量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局和图形的优化"><span class="nav-number">2.5.</span> <span class="nav-text">布局和图形的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少Apk包的体积"><span class="nav-number">2.6.</span> <span class="nav-text">减少Apk包的体积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化、内存泄露、OOM分析"><span class="nav-number">2.7.</span> <span class="nav-text">内存优化、内存泄露、OOM分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提高app启动速度"><span class="nav-number">2.8.</span> <span class="nav-text">提高app启动速度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单元测试编写"><span class="nav-number">3.</span> <span class="nav-text">单元测试编写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些开源库的原理深入剖析"><span class="nav-number">4.</span> <span class="nav-text">一些开源库的原理深入剖析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android中的设计模式"><span class="nav-number">5.</span> <span class="nav-text">Android中的设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#当前比较火热的技术"><span class="nav-number">6.</span> <span class="nav-text">当前比较火热的技术</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Su</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'suli1';
+      var disqus_identifier = '2016/09/06/interview/';
+      var disqus_title = "Android面试准备";
+      var disqus_url = 'http://suli1.github.io/2016/09/06/interview/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
